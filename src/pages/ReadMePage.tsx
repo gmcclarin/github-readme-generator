@@ -1,7 +1,7 @@
 export default function ReadMePage () {
     return (
         <div>
-            PArent PAge for now
+            Parent Page for now
         </div>
     )
 }

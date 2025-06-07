@@ -8,5 +8,10 @@ export default function generateMarkdown(data: ReadMeData): string  {
     ## 🚀 Skills
     ${data.skills && (data.skills.map((s) => s))}
 
+    ## Let's Connect 
+    ${data.socialMedia && (data.socialMedia.map((social) => {
+        social.name
+    }))}
+
     `
 }  

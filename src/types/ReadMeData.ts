@@ -5,8 +5,8 @@ export interface ReadMeData {
     funFact?: string;
     phone?: string;
     email?: string;
-    socialMedia: SocialMedia;
-    skills: string[];
+    socialMedia?: SocialMedia[];
+    skills?: string[];
 }
 
 
