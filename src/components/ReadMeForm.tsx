@@ -1,53 +1,56 @@
-import { useForm, type SubmitHandler } from "react-hook-form";
-import generateMarkdown from "../utils/generateMarkdown";
-import { Button, TextField } from "@mui/material";
-import {z} from "zod";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {readMeSchema,type ReadMeFormValues} from "../schemas/readMeSchema"
+import { TextField, Button, Box } from "@mui/material";
 
+export default function ReadMeForm() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ReadMeFormValues>({
+    resolver: zodResolver(readMeSchema),
+  });
 
-export const readMeSchema = z.object({
-  firstName: z.string().min(1),
-  lastName: z.string().optional(),
-  bio: z.string().optional(),
-  funFact: z.string().optional(),
-  phone: z.string().optional(),
-  email: z.string().email().optional(),
-  socialMedia: z.array(
-    z.object({
-      name: z.string(),
-      url: z.string().url(),
-      icon: z.string().optional()
-    })
-  ).optional(),
-  skills: z.array(z.string()).optional(),
-});
+  const onSubmit = (data: ReadMeFormValues) => {
+    console.log("Form data:", data);
+  };
 
-type ReadMeFormValues  = z.infer< typeof readMeSchema>;
+  return (
+    <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ p: 2, display: "flex", flexDirection: "column", gap: 2 }}>
+      <Controller
+        name="firstName"
+        control={control}
+        defaultValue=""
+        render={({ field }) => (
+          <TextField
+            {...field}
+            label="First Name"
+            fullWidth
+            error={!!errors.firstName}
+            helperText={errors.firstName?.message}
+          />
+        )}
+      />
 
-export default function ReadMeForm () {
-    const {
-        register,
-        handleSubmit,
-        formState: {errors}
-    } = useForm<ReadMeFormValues>({
-          resolver: zodResolver(readMeSchema),
-    });
+      <Controller
+        name="lastName"
+        control={control}
+        defaultValue=""
+        render={({ field }) => (
+          <TextField
+            {...field}
+            label="Last Name"
+            fullWidth
+            error={!!errors.lastName}
+            helperText={errors.lastName?.message}
+          />
+        )}
+      />
 
-    const onSubmit: SubmitHandler<ReadMeFormValues> = (data) => {
-        generateMarkdown(data);
-    }
-
-
-    return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <TextField 
-        {...register("firstName", { required: true })}
-            />
-            <TextField 
-            {...register("lastName")}/>
-            <Button
-            type="submit"
-            >Make my ReadMe!</Button>
-        </form>
-    )
+      <Button type="submit" variant="contained">
+        Submit
+      </Button>
+    </Box>
+  );
 }
