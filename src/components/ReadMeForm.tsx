@@ -1,20 +1,14 @@
 import {  useForm, type SubmitHandler } from "react-hook-form";
 import { TextField, Button, Box } from "@mui/material";
-
-interface IFormInput {
-  firstName: string;
-  lastName: string;
-  age: number;
-}
-
+import {  type ReadMeFormValues } from "../schemas/readMeSchema";
 export default function ReadMeForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInput>();
+  } = useForm<ReadMeFormValues>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<ReadMeFormValues> = (data) => console.log(data);
 
   return (
     <Box
@@ -30,7 +24,8 @@ export default function ReadMeForm() {
         error={!!errors.lastName}
         helperText={errors.lastName?.message}
       />
-
+      <TextField 
+      {...register("bio")}/>
       <Button type="submit" variant="contained">
         Submit
       </Button>
