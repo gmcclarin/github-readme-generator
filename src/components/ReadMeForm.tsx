@@ -1,51 +1,34 @@
-import { Controller, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {readMeSchema,type ReadMeFormValues} from "../schemas/readMeSchema"
+import {  useForm, type SubmitHandler } from "react-hook-form";
 import { TextField, Button, Box } from "@mui/material";
+
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  age: number;
+}
 
 export default function ReadMeForm() {
   const {
-    control,
+    register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ReadMeFormValues>({
-    resolver: zodResolver(readMeSchema),
-  });
+  } = useForm<IFormInput>();
 
-  const onSubmit = (data: ReadMeFormValues) => {
-    console.log("Form data:", data);
-  };
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ p: 2, display: "flex", flexDirection: "column", gap: 2 }}>
-      <Controller
-        name="firstName"
-        control={control}
-        defaultValue=""
-        render={({ field }) => (
-          <TextField
-            {...field}
-            label="First Name"
-            fullWidth
-            error={!!errors.firstName}
-            helperText={errors.firstName?.message}
-          />
-        )}
-      />
-
-      <Controller
-        name="lastName"
-        control={control}
-        defaultValue=""
-        render={({ field }) => (
-          <TextField
-            {...field}
-            label="Last Name"
-            fullWidth
-            error={!!errors.lastName}
-            helperText={errors.lastName?.message}
-          />
-        )}
+    <Box
+      component="form"
+      onSubmit={handleSubmit(onSubmit)}
+      sx={{ p: 2, display: "flex", flexDirection: "column", gap: 2 }}
+    >
+      <TextField {...register("firstName")} label="First Name" fullWidth />
+      <TextField
+        {...register("lastName")}
+        label="Last Name"
+        fullWidth
+        error={!!errors.lastName}
+        helperText={errors.lastName?.message}
       />
 
       <Button type="submit" variant="contained">
