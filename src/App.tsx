@@ -1,10 +1,15 @@
 import ReadMePage from "./pages/ReadMePage";
 import DarkModeToggle from "./components/DarkModeToggle";
 
-function App() {
+type Props = {
+  mode: 'light' | 'dark';
+  setMode: (mode: 'light' | 'dark') => void;
+};
+
+function App({mode, setMode}: Props) {
   return (
     <div style={{ padding: "2rem" }}>
-      <DarkModeToggle />
+      <DarkModeToggle mode={mode} setMode={setMode} />
       <h1>GitHub README Generator</h1>
       <ReadMePage />
     </div>
