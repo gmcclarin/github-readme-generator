@@ -79,6 +79,7 @@ export default function ReadMeForm() {
       {/* SKILLS */}
       {/* Checkboxes? */}
       
+      
       {/* SOCIAL MEDIA */}
       <Typography variant="h6" mt={2}>
         Social Media Links
@@ -130,6 +131,7 @@ export default function ReadMeForm() {
           </IconButton>
         </Box>
       ))}
+
       <Button
         type="button"
         variant="outlined"
@@ -138,7 +140,7 @@ export default function ReadMeForm() {
         + Add Another Social Link
       </Button>
       <Button type="submit" variant="contained">
-        Submit
+        Generate ReadMe
       </Button>
     </Box>
   );
