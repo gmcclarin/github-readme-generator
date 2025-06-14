@@ -64,6 +64,59 @@ const skills: Skill[] = [
         name: "Terradata",
         badge: "https://img.shields.io/badge/Teradata-F37440?style=for-the-badge&logo=teradata&logoColor=white"
     },
-    
+    // frameworks, platforms, libraries
+    {
+        name: ".NET",
+        badge: "https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white",
+    },
+    {
+        name: "Angular",
+        badge: "https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white",
+    },
+    {
+        name: "Angular.js",
+        badge: "https://img.shields.io/badge/angular.js-%23E23237.svg?style=for-the-badge&logo=angularjs&logoColor=white"
+    },
+    {
+        name: "Apacha Spark",
+        badge: "https://img.shields.io/badge/Apache%20Spark-FDEE21?style=flat-square&logo=apachespark&logoColor=black",
+    },
+    {
+        name:"Apollo GraphQL",
+        badge: "Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql"
+    },
+    {
+        name: "Bootstrap",
+        badge: "https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white",
+    },
+    {
+        name: "Chart.js",
+        badge: "https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white",
+    },
+    {
+        name: "Django",
+        badge: "https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white",
+    },
+    {
+        name: "Drupal",
+        badge: "https://img.shields.io/badge/drupal-%230678BE.svg?style=for-the-badge&logo=drupal&logoColor=white"
+    },
+    {
+        name: "Expo",
+        badge: "https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37",
+    },
+    {
+        name: "express",
+        badge: "https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"
+    },
+    {
+        name: "Fast API",
+        badge: "https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi"
+    },
+    {
+        name: "Flask",
+        badge: "https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white"
+    }
+
 
 ];
