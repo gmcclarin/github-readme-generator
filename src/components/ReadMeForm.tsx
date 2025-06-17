@@ -16,6 +16,7 @@ import {
 import { type ReadMeFormValues, readMeSchema } from "../schemas/readMeSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Skills from "./Skills";
 
 export default function ReadMeForm() {
   const {
@@ -78,7 +79,7 @@ export default function ReadMeForm() {
       <TextField {...register("email")} label="Email" variant="standard" />
       {/* SKILLS */}
       {/* Checkboxes? */}
-      
+
       
       {/* SOCIAL MEDIA */}
       <Typography variant="h6" mt={2}>
@@ -131,6 +132,8 @@ export default function ReadMeForm() {
           </IconButton>
         </Box>
       ))}
+
+      <Skills />
 
       <Button
         type="button"
