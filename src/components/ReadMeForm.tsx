@@ -17,6 +17,7 @@ import { type ReadMeFormValues, readMeSchema } from "../schemas/readMeSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Skills from "./Skills";
+import Languages from "./Languages";
 
 export default function ReadMeForm() {
   const {
@@ -133,7 +134,7 @@ export default function ReadMeForm() {
         </Box>
       ))}
 
-      <Skills />
+      
 
       <Button
         type="button"
@@ -142,6 +143,10 @@ export default function ReadMeForm() {
       >
         + Add Another Social Link
       </Button>
+      <Typography variant="h6">Frameworks and Platforms</Typography>
+      <Skills />
+      <Typography variant="h6">Languages</Typography>
+      <Languages />
       <Button type="submit" variant="contained">
         Generate ReadMe
       </Button>

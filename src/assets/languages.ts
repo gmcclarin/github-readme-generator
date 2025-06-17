@@ -1,6 +1,6 @@
 import type { Language } from "../types/language";
 
-export const languages: Language[] = [
+export const languageBadges: Language[] = [
   {
     name: "Python",
     badge: "https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54",
