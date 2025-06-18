@@ -20,6 +20,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Skills from "./Skills";
 import Languages from "./Languages";
 import generateMarkdown from "../utils/generateMarkdown";
+import { downloadMarkdown } from "../utils/downloadMarkdown";
 
 export default function ReadMeForm() {
   const methods = useForm<ReadMeFormValues>({
@@ -39,7 +40,8 @@ export default function ReadMeForm() {
   });
 
   const onSubmit: SubmitHandler<ReadMeFormValues> = (data) => {
-    generateMarkdown(data);
+    const markdown = generateMarkdown(data);
+    downloadMarkdown(markdown);
   };
 
   return (
