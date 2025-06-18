@@ -1,4 +1,4 @@
-import type { ReadMeData } from "../types/ReadMeData";
+import { type ReadMeData } from "../schemas/readMeSchema";
 
 export default function generateMarkdown(data: ReadMeData): string {
   return `
@@ -6,11 +6,17 @@ export default function generateMarkdown(data: ReadMeData): string {
     ${data.bio && data.bio}
     
     ## 🚀 Skills
-    ${
-      data.skills?.length
-        ? data.skills.map((s) => `- ${s}`).join("\n")
-        : "Coming soon..."
-    }
+${
+  data.skills?.length
+    ? data.skills.map((s) => `![${s.name}](${s.badge})`).join(" ")
+    : "_Coming soon..._"
+}
+    ## 🖥️ Languages
+${
+  data.languages?.length
+    ? data.languages.map((l) => `![${l.name}](${l.badge})`).join(" ")
+    : "_Coming soon..._"
+}
 
     ## 🌐 Let's Connect
     ${

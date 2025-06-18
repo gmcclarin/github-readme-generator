@@ -16,7 +16,26 @@ export const readMeSchema = z.object({
       })
     )
     .optional(),
-  skills: z.array(z.string()).optional(),
+   skills: z
+    .array(
+      z.object({
+        name: z.string(),
+        badge: z.string().url(),
+      })
+    )
+    .optional(),
+  languages: z
+    .array(
+      z.object({
+        name: z.string(),
+        badge: z.string().url(),
+      })
+    )
+    .optional(),
 });
 
-export type ReadMeFormValues = z.infer<typeof readMeSchema>;
+
+export type ReadMeData = z.infer<typeof readMeSchema>;
+export type ReadMeFormValues = ReadMeData;
+
+
