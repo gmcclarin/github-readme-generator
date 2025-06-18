@@ -19,8 +19,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Skills from "./Skills";
 import Languages from "./Languages";
-import generateMarkdown from "../utils/generateMarkdown";
-import { downloadMarkdown } from "../utils/downloadMarkdown";
+import { useMarkdownGenerator } from "../hooks/useMarkDownGenerator";
+import ReactMarkdown from "react-markdown";
+
 
 export default function ReadMeForm() {
   const methods = useForm<ReadMeFormValues>({
@@ -39,9 +40,11 @@ export default function ReadMeForm() {
     name: "socialMedia",
   });
 
+  const { markdown, generate, download, copyToClipboard } =
+    useMarkdownGenerator();
+
   const onSubmit: SubmitHandler<ReadMeFormValues> = (data) => {
-    const markdown = generateMarkdown(data);
-    downloadMarkdown(markdown);
+    generate(data);
   };
 
   return (
@@ -157,6 +160,34 @@ export default function ReadMeForm() {
           Generate ReadMe
         </Button>
       </Box>
+      {markdown && (
+         <Box sx={{ mt: 4 }}>
+          <Typography variant="h5" gutterBottom>
+            📝 Your README.md
+          </Typography>
+
+          <Box
+            sx={{
+              border: "1px solid #ddd",
+              borderRadius: 2,
+              p: 2,
+              mb: 2,
+              backgroundColor: "background.paper",
+            }}
+          >
+            <ReactMarkdown>{markdown}</ReactMarkdown>
+          </Box>
+
+          <Box sx={{ display: "flex", gap: 2 }}>
+            <Button onClick={copyToClipboard} variant="outlined">
+              Copy to Clipboard
+            </Button>
+            <Button onClick={() => download()} variant="outlined">
+              Download README.md
+            </Button>
+          </Box>
+        </Box>
+      )}
     </FormProvider>
   );
 }
