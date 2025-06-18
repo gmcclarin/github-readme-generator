@@ -1,5 +1,6 @@
 import {
   Controller,
+  FormProvider,
   useFieldArray,
   useForm,
   type SubmitHandler,
@@ -20,14 +21,16 @@ import Skills from "./Skills";
 import Languages from "./Languages";
 
 export default function ReadMeForm() {
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<ReadMeFormValues>({
+  const methods = useForm<ReadMeFormValues>({
     resolver: zodResolver(readMeSchema),
   });
+
+  const {
+    control,
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = methods;
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -37,6 +40,7 @@ export default function ReadMeForm() {
   const onSubmit: SubmitHandler<ReadMeFormValues> = (data) => console.log(data);
 
   return (
+    <FormProvider {...methods}>
     <Box
       component="form"
       onSubmit={handleSubmit(onSubmit)}
@@ -78,10 +82,7 @@ export default function ReadMeForm() {
         variant="standard"
       />
       <TextField {...register("email")} label="Email" variant="standard" />
-      {/* SKILLS */}
-      {/* Checkboxes? */}
 
-      
       {/* SOCIAL MEDIA */}
       <Typography variant="h6" mt={2}>
         Social Media Links
@@ -134,8 +135,6 @@ export default function ReadMeForm() {
         </Box>
       ))}
 
-      
-
       <Button
         type="button"
         variant="outlined"
@@ -150,6 +149,6 @@ export default function ReadMeForm() {
       <Button type="submit" variant="contained">
         Generate ReadMe
       </Button>
-    </Box>
+    </Box></FormProvider>
   );
 }

@@ -1,3 +1,5 @@
+import type { Language } from "./language";
+
 export interface ReadMeData {
     firstName: string;
     lastName?: string;
@@ -6,7 +8,8 @@ export interface ReadMeData {
     phone?: string;
     email?: string;
     socialMedia?: SocialMedia[];
-    skills?: string[];
+    skills?: {name: string; badge: string;}[];
+    languages?: Language[];
 }
 
 
