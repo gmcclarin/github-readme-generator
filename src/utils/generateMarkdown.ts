@@ -22,6 +22,7 @@ ${
     ${
       data.socialMedia?.length
         ? data.socialMedia
+            .filter((social) => !!social.url && !!social.name)
             .map((social) => `- [${social.name}](${social.url})`)
             .join("\n")
         : "Connect with me soon!"
