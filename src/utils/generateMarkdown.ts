@@ -5,18 +5,25 @@ export default function generateMarkdown(data: ReadMeData): string {
     # 👋 Hi, I'm ${data.firstName}
     ${data.bio && data.bio}
     
+    
+
     ## 🚀 Skills
 ${
   data.skills?.length
     ? data.skills.map((s) => `![${s.name}](${s.badge})`).join(" ")
     : "_Coming soon..._"
 }
+
+
+
     ## 🖥️ Languages
 ${
   data.languages?.length
     ? data.languages.map((l) => `![${l.name}](${l.badge})`).join(" ")
     : "_Coming soon..._"
 }
+
+
 
     ## 🌐 Let's Connect
     ${
