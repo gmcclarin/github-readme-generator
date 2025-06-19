@@ -23,7 +23,7 @@ export default function Languages() {
   return (
     <Grid container spacing={2}>
       {languageBadges.map((language) => (
-        <Grid size={{xs:12, sm:6, md:4, lg:2}}  key={language.name}>
+        <Grid size={{xs:12, sm:6, md:4}}  key={language.name}>
           <FormControlLabel
             control={
               <Controller

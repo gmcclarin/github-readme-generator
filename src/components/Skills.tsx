@@ -23,7 +23,7 @@ export default function Skills() {
   return (
     <Grid container >
       {skillBadges.map((skill) => (
-         <Grid size={{xs:12, sm:6, md:4, lg:2}}  key={skill.name}>
+         <Grid size={{xs:12, sm:6, md:4}}  key={skill.name}>
         <FormControlLabel
           key={skill.name}
           control={
