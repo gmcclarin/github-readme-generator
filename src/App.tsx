@@ -17,8 +17,6 @@ function App({mode, setMode}: Props) {
       }}>
         <DarkModeToggle mode={mode} setMode={setMode} />
       </Box>
-      
-      <h1>GitHub README Generator</h1>
       <ReadMePage />
     </div>
   );

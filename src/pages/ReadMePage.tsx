@@ -15,7 +15,7 @@ export default function ReadMePage() {
     >
       <Box textAlign="center">
         <Typography variant="h4" fontWeight={700} gutterBottom>
-          Welcome to your GitHub README Generator ✨
+          Welcome to your GitHub Profile README Generator ✨
         </Typography>
         <Typography variant="subtitle1" color="text.secondary">
           Create a standout GitHub profile in just a few steps
