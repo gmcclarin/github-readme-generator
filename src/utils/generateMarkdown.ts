@@ -5,7 +5,8 @@ export default function generateMarkdown(data: ReadMeData): string {
     # 👋 Hi, I'm ${data.firstName}
     ${data.bio && data.bio}
     
-    
+    ## Fun Fact
+    ${data.funFact && data.funFact}
 
     ## 🚀 Skills
 ${
