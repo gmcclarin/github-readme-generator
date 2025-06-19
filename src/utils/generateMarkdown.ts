@@ -3,7 +3,7 @@ import { socialBadgeMap } from "./socialMediaBadgeMap";
 
 export default function generateMarkdown(data: ReadMeData): string {
   return`
-${data.bannerUrl ? `<p align="center"><img src="${data.bannerUrl}" alt="banner" /></p>\n\n` : ""}
+${data.bannerUrl ? `<p align="center"><img src="${data.bannerUrl}" alt="banner" width="100%" style="max-height: 200px; object-fit: cover;"/></p>\n\n` : ""}
 <h1 align="center">✨ ${data.firstName} ${data.lastName} ✨</h1>
 <p align="center">
   ${data.bio ?? ""}
