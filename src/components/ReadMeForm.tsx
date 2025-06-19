@@ -21,9 +21,12 @@ import Skills from "./Skills";
 import Languages from "./Languages";
 import { useMarkdownGenerator } from "../hooks/useMarkDownGenerator";
 import ReactMarkdown from "react-markdown";
-
+import rehypeRaw from "rehype-raw";
+import { useRef } from "react";
 
 export default function ReadMeForm() {
+  const previewRef = useRef<HTMLDivElement>(null);
+
   const methods = useForm<ReadMeFormValues>({
     resolver: zodResolver(readMeSchema),
   });
@@ -45,6 +48,9 @@ export default function ReadMeForm() {
 
   const onSubmit: SubmitHandler<ReadMeFormValues> = (data) => {
     generate(data);
+    setTimeout(() => {
+      previewRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   return (
@@ -156,37 +162,49 @@ export default function ReadMeForm() {
         <Skills />
         <Typography variant="h6">Languages</Typography>
         <Languages />
+        <TextField
+          {...register("bannerUrl")}
+          label="Banner Image URL (optional)"
+          fullWidth
+          variant="standard"
+          error={!!errors.lastName}
+          helperText={errors.lastName?.message}
+        />
         <Button type="submit" variant="contained">
           Generate ReadMe
         </Button>
       </Box>
       {markdown && (
-         <Box sx={{ mt: 4 }}>
-          <Typography variant="h5" gutterBottom>
-            📝 Your README.md
-          </Typography>
+        <div ref={previewRef} style={{ marginTop: "2rem" }}>
+          <Box sx={{ mt: 4 }}>
+            <Typography variant="h5" gutterBottom>
+              📝 Your README.md
+            </Typography>
 
-          <Box
-            sx={{
-              border: "1px solid #ddd",
-              borderRadius: 2,
-              p: 2,
-              mb: 2,
-              backgroundColor: "background.paper",
-            }}
-          >
-            <ReactMarkdown>{markdown}</ReactMarkdown>
-          </Box>
+            <Box
+              sx={{
+                border: "1px solid #ddd",
+                borderRadius: 2,
+                p: 2,
+                mb: 2,
+                backgroundColor: "background.paper",
+              }}
+            >
+              <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {markdown}
+              </ReactMarkdown>
+            </Box>
 
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <Button onClick={copyToClipboard} variant="outlined">
-              Copy to Clipboard
-            </Button>
-            <Button onClick={() => download()} variant="outlined">
-              Download README.md
-            </Button>
+            <Box sx={{ display: "flex", gap: 2 }}>
+              <Button onClick={copyToClipboard} variant="outlined">
+                Copy to Clipboard
+              </Button>
+              <Button onClick={() => download()} variant="outlined">
+                Download README.md
+              </Button>
+            </Box>
           </Box>
-        </Box>
+        </div>
       )}
     </FormProvider>
   );

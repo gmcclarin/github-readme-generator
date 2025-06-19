@@ -6,7 +6,7 @@ export const readMeSchema = z.object({
   bio: z.string().optional(),
   funFact: z.string().optional(),
   phone: z.string().optional(),
-  email: z.string().email().optional(),
+  email: z.string().email().optional().or(z.literal("")),
   socialMedia: z
     .array(
       z.object({
@@ -32,6 +32,7 @@ export const readMeSchema = z.object({
       })
     )
     .optional(),
+  bannerUrl: z.string().url().optional().or(z.literal("")),
 });
 
 
