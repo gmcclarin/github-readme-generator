@@ -1,6 +1,25 @@
 <h1 align="center">Github README Profile Generator</h1>
 <p align="center"><strong>Easily generate a fun github readme</strong></p>
 
+## ✨ Features
+🔧 Live markdown preview
+
+🖼️ Customizable sections: About Me, Skills, Projects, Stats, and Social Links
+
+🎨 Styled themes and layouts for aesthetic profiles
+
+💾 One-click copy or download of the finished README
+
+💡 Smart prompts and tips for better self-branding
+
+## 🚀 Tech Stack
+Frontend: React + Tailwind CSS
+
+State Management: React Hook Form + Context API
+
+Markdown Rendering: react-markdown
+
+Deployment:  Netlify 
 
 ## 🛠️ Getting Started
 
