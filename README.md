@@ -1,5 +1,5 @@
 <h1 align="center">Github README Profile Generator</h1>
-<p align="center"><strong>Easily generate a fun github readme</strong></p>
+<p align="center"><strong>Easily generate a fun github profile</strong></p>
 
 ## ✨ Features
 🔧 Live markdown preview
