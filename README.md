@@ -12,6 +12,9 @@
 
 💡 Smart prompts and tips for better self-branding
 
+## DEPLOYED HERE, use it for your own github profiles!
+[Live Project](https://generate-github-profile-readme.netlify.app/)
+
 ## 🚀 Tech Stack
 Frontend: React + Tailwind CSS
 
@@ -21,7 +24,7 @@ Markdown Rendering: react-markdown
 
 Deployment:  Netlify 
 
-## 🛠️ Getting Started
+## 🛠️ Run the App locally
 
 ```sh
 # Clone the repo
@@ -41,9 +44,6 @@ npm run dev
 ## 📸 Preview
 <p align="center"><img src="./screenshot.png" alt="screenshot" width="100%" style="max-height: 500px; object-fit: cover;"/></p>
 
-
-## Live Project
-[Live Project](https://generate-github-profile-readme.netlify.app/)
 
 ## License
 MIT License.  
